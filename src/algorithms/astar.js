@@ -1,10 +1,10 @@
-export function dijkstra(grid, startNode, finishNode) {
+export function AStar(grid, startNode, finishNode) {
   const visitedNodesInOrder = [];
   startNode.distance = 0;
-  const unvisitedNodes = getAllNodes(grid); // Q: different from using grid or slice of grid???
+  const unvisitedNodes = getAllNodes(grid);
 
   while (unvisitedNodes.length) {
-    sortNodesByDistance(unvisitedNodes);
+    sortByDistance(unvisitedNodes);
     const closestNode = unvisitedNodes.shift();
     // If we encounter a wall, we skip it.
     if (!closestNode.isWall) {
@@ -29,14 +29,14 @@ function getAllNodes(grid) {
   return nodes;
 }
 
-function sortNodesByDistance(unvisitedNodes) {
+function sortByDistance(unvisitedNodes) {
   unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 }
 
 function updateUnvisitedNeighbors(node, grid) {
   const unvisitedNeighbors = getUnvisitedNeighbors(node, grid);
   for (const neighbor of unvisitedNeighbors) {
-    neighbor.distance = node.distance + 1;
+    neighbor.distance = node.distance + 1 + neighbor.distanceToFinishNode;
     neighbor.previousNode = node;
   }
 }
