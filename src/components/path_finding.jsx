@@ -370,20 +370,6 @@ export default class PathFindingVisualizer extends Component {
 
         <button
           type="button"
-          className="btn btn-danger"
-          onClick={() => this.clearGrid()}
-        >
-          Clear Grid
-        </button>
-        <button
-          type="button"
-          className="btn btn-warning"
-          onClick={() => this.clearWalls()}
-        >
-          Clear Walls
-        </button>
-        <button
-          type="button"
           className="btn btn-primary"
           onClick={() => this.visualize("Dijkstra")}
         >
@@ -401,8 +387,23 @@ export default class PathFindingVisualizer extends Component {
           className="btn btn-primary"
           onClick={() => this.visualize("BFS")}
         >
-          Bread First Search
+          Breath First Search
         </button>
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={() => this.clearWalls()}
+        >
+          Clear Walls
+        </button>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => this.clearGrid()}
+        >
+          Clear Grid
+        </button>
+
         {/* <button
           type="button"
           className="btn btn-primary"
