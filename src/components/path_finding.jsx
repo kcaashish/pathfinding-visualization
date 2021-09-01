@@ -403,13 +403,13 @@ export default class PathFindingVisualizer extends Component {
         >
           Bread First Search
         </button>
-        <button
+        {/* <button
           type="button"
           className="btn btn-primary"
           onClick={() => this.visualize("DFS")}
         >
           Depth First Search
-        </button>
+        </button> */}
 
         <div
           className="grid-container"
